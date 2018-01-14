@@ -34,7 +34,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return $model->getUserName();
                 }
             ],
-            'code',
+            [
+                'format'=>'html',
+                'attribute'=>'code',
+                'value'=>function($model) {
+                    return '<pre>'.$model->code.'</pre>';
+                }
+            ],
             'score',
 
             ['class' => 'yii\grid\ActionColumn'],
