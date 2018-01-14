@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Challenges', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="challenge-update">
+<div class="challenge-update box">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

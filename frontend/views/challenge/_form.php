@@ -10,7 +10,7 @@ use kartik\widgets\DateTimePicker;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="challenge-form">
+<div class="challenge-form box">
 
     <?php $form = ActiveForm::begin(); ?>
 
