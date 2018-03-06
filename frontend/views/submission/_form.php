@@ -14,14 +14,14 @@ use kartik\select2\Select2;
     <?php $form = ActiveForm::begin(); ?>
 
     <?php
-    echo $form->field($model, 'challenge_id')->widget(Select2::classname(), [
-      'data' => $challenges,
-      'language' => 'en',
-      'options' => ['placeholder' => 'Select a challenge'],
-      'pluginOptions' => [
-        'allowClear' => true
-      ],
-    ]);
+        echo $form->field($model, 'challenge_id')->widget(Select2::classname(), [
+          'data' => $challenges,
+          'language' => 'en',
+          'options' => ['placeholder' => 'Select a challenge'],
+          'pluginOptions' => [
+            'allowClear' => true
+          ],
+        ]);
     ?>
 
     <?= $form->field($model, 'code')->textarea(['rows' => 15]) ?>

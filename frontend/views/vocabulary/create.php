@@ -4,19 +4,19 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Category */
+/* @var $model frontend\models\Challenge */
 
-$this->title = 'Create Category';
-$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
+$this->title = 'Create Challenge';
+$this->params['breadcrumbs'][] = ['label' => 'Challenges', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
-<div class="category-create box">
+<div class="challenge-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
+        'subcategories' => $subcategories
     ]) ?>
 
 </div>

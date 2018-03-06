@@ -28,29 +28,28 @@ AppAsset::register($this);
 <div class="wrap" style="background-color: #e9ebee">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Challenge',
+        'brandLabel' => 'MenLara',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Play Now', 'url' => ['/challenge/playnow']],
-        ['label' => 'Hall of fame', 'url' => ['/submission/fame']],
+        ['label' => 'Home', 'url' => ['/challenge/playnow']],
     ];
 
 
 
     $menuItems[] = [
-      'label' => 'Category',
+      'label' => 'Vocabulary',
       'items' => [
-        ['label' => 'Create', 'url' => ['/category/create']],
+        ['label' => 'Create', 'url' => ['/vocabulary/create']],
         '<li class="divider"></li>',
-        ['label' => 'View all', 'url' => ['/category/index']],
+        ['label' => 'View all', 'url' => ['/vocabulary/index']],
       ],
     ];
     $menuItems[] = [
-      'label' => 'SubCategory',
+      'label' => 'Grammar',
       'items' => [
         ['label' => 'Create', 'url' => ['/subcategory/create']],
         '<li class="divider"></li>',
@@ -59,7 +58,7 @@ AppAsset::register($this);
     ];
 
     $menuItems[] = [
-      'label' => 'Challenge',
+      'label' => 'Reading',
       'items' => [
         ['label' => 'Create', 'url' => ['/challenge/create']],
         '<li class="divider"></li>',
@@ -68,12 +67,30 @@ AppAsset::register($this);
     ];
 
     $menuItems[] = [
-      'label' => 'Submit',
+      'label' => 'Listening',
       'items' => [
         ['label' => 'Create', 'url' => ['/submission/create']],
         '<li class="divider"></li>',
         ['label' => 'View all', 'url' => ['/submission/index']],
       ],
+    ];
+
+    $menuItems[] = [
+        'label' => 'Writing',
+        'items' => [
+            ['label' => 'Create', 'url' => ['/submission/create']],
+            '<li class="divider"></li>',
+            ['label' => 'View all', 'url' => ['/submission/index']],
+        ],
+    ];
+
+    $menuItems[] = [
+        'label' => 'Speaking',
+        'items' => [
+            ['label' => 'Create', 'url' => ['/submission/create']],
+            '<li class="divider"></li>',
+            ['label' => 'View all', 'url' => ['/submission/index']],
+        ],
     ];
 
     if (Yii::$app->user->isGuest) {

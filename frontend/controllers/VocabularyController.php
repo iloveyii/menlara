@@ -16,7 +16,7 @@ use yii\helpers\ArrayHelper;
 /**
  * ChallengeController implements the CRUD actions for Challenge model.
  */
-class ChallengeController extends Controller
+class VocabularyController extends Controller
 {
     /**
      * @inheritdoc
