@@ -5,7 +5,7 @@ return [
     'components' => [
         'db' => [
             'class' => '\yii\db\Connection',
-            'dsn' => 'mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=challenge',
+            'dsn' => 'mysql:unix_socket=/var/run/mysqld/mysqld.sock;dbname=menlara',
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8',
