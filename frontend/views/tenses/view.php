@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Challenge */
+/* @var $model frontend\models\Tenses */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Challenges', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Tenses', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="challenge-view box">
+<div class="tenses-view box">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -28,12 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'sub_category_id',
-            'date_start',
-            'date_stop',
-            'description',
-            'expected_result',
-            'title',
+            'id',
+            'english',
+            'infinitiv',
+            'presens',
+            'preteritum',
+            'supinum',
+            'imperativ',
         ],
     ]) ?>
 

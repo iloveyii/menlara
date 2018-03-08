@@ -35,7 +35,10 @@ return [
                 '' => 'challenge/playnow',
                 'subcategory' => 'site/services',
                 'contact' => 'site/contact',
+                'tenses' => 'tenses/index',
+
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
+
             ],
         ],
         'view' => [

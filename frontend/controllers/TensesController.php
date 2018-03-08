@@ -38,16 +38,19 @@ class TensesController extends Controller
      * Lists all Challenge models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex( $like = null)
     {
+        $query = $like === null ? Tenses::find() : Tenses::find()->where(['like', 'infinitiv', "{$like}%", false]);
+
         $dataProvider = new ActiveDataProvider([
-            'query' => Tenses::find(),
+            'query' => $query,
         ]);
 
-        $this->translate();
+        $letters = array_merge(range('a', 'z'), ['ä', 'å', 'ö'] );
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'letters' => $letters
         ]);
     }
 
@@ -140,16 +143,7 @@ class TensesController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Challenge();
-        $categories = Category::find()->select(['id', 'name'])->all();
-
-        foreach($categories as $category) {
-            $subcategory = SubCategory::find()->where(['category_id' => $category->id])->all();
-
-            if(! empty($subcategory)) {
-                $list[$category->name] = ArrayHelper::map($subcategory, 'id', 'name');
-            }
-        }
+        $model = new Tenses();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -157,7 +151,6 @@ class TensesController extends Controller
 
         return $this->render('create', [
             'model' => $model,
-            'subcategories' => $list
         ]);
     }
 
@@ -206,7 +199,7 @@ class TensesController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Challenge::findOne($id)) !== null) {
+        if (($model = Tenses::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
