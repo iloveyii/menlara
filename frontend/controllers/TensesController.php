@@ -44,6 +44,11 @@ class TensesController extends Controller
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort' => [
+                'defaultOrder' => [
+                    'infinitiv' => SORT_ASC,
+                ]
+            ],
         ]);
 
         $letters = array_merge(range('a', 'z'), ['ä', 'å', 'ö'] );

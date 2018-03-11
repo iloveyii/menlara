@@ -4,18 +4,19 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Vocabulary */
+/* @var $model frontend\models\Subtopic */
 
-$this->title = 'Create Vocabulary';
-$this->params['breadcrumbs'][] = ['label' => 'Vocabularies', 'url' => ['index']];
+$this->title = 'Create Subtopic';
+$this->params['breadcrumbs'][] = ['label' => 'Subtopics', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="vocabulary-create box">
+<div class="subtopic-create box">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
         'model' => $model,
+        'listTopic' => $listTopic
     ]) ?>
 
 </div>

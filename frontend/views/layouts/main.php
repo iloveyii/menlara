@@ -39,59 +39,14 @@ AppAsset::register($this);
     ];
 
 
+    $sections = \frontend\models\Section::find()->all();
 
-    $menuItems[] = [
-      'label' => 'Vocabulary',
-      'items' => [
-        ['label' => 'Create', 'url' => ['/vocabulary/create']],
-        '<li class="divider"></li>',
-        ['label' => 'View all', 'url' => ['/vocabulary/index']],
-      ],
-    ];
-    $menuItems[] = [
-      'label' => 'Grammar',
-      'items' => [
-        ['label' => 'Create', 'url' => ['/subcategory/create']],
-        '<li class="divider"></li>',
-        ['label' => 'View all', 'url' => ['/subcategory/index']],
-      ],
-    ];
-
-    $menuItems[] = [
-      'label' => 'Reading',
-      'items' => [
-        ['label' => 'Create', 'url' => ['/challenge/create']],
-        '<li class="divider"></li>',
-        ['label' => 'View all', 'url' => ['/challenge/index']],
-      ],
-    ];
-
-    $menuItems[] = [
-      'label' => 'Listening',
-      'items' => [
-        ['label' => 'Create', 'url' => ['/submission/create']],
-        '<li class="divider"></li>',
-        ['label' => 'View all', 'url' => ['/submission/index']],
-      ],
-    ];
-
-    $menuItems[] = [
-        'label' => 'Writing',
-        'items' => [
-            ['label' => 'Create', 'url' => ['/submission/create']],
-            '<li class="divider"></li>',
-            ['label' => 'View all', 'url' => ['/submission/index']],
-        ],
-    ];
-
-    $menuItems[] = [
-        'label' => 'Speaking',
-        'items' => [
-            ['label' => 'Create', 'url' => ['/submission/create']],
-            '<li class="divider"></li>',
-            ['label' => 'View all', 'url' => ['/submission/index']],
-        ],
-    ];
+    foreach ($sections as $section) {
+        $menuItems[] = [
+            'label' => $section->name,
+            'url' => [sprintf("/%s", $section->url)]
+        ];
+    }
 
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Vocabulary */
+/* @var $model frontend\models\Topic */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Vocabularies', 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Topics', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="vocabulary-view box">
+<div class="topic-view box">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,9 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'word',
-            'meaning',
-            'lang',
+            'name',
+            'description:ntext',
+            'section_id',
             'updated_at',
             'created_at',
         ],

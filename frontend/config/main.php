@@ -28,6 +28,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        // /section/topic/subtopic
+        // /grammar/tenses/forms
+        // /reading/nyheter/eskilstuna-vann
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

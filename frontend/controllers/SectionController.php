@@ -3,16 +3,16 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Vocabulary;
+use frontend\models\Section;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * VocabularyController implements the CRUD actions for Vocabulary model.
+ * SectionController implements the CRUD actions for Section model.
  */
-class VocabularyController extends Controller
+class SectionController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,13 +30,13 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Lists all Vocabulary models.
+     * Lists all Section models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Vocabulary::find(),
+            'query' => Section::find(),
         ]);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Displays a single Vocabulary model.
+     * Displays a single Section model.
      * @param integer $id
      * @return mixed
      */
@@ -57,13 +57,13 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Creates a new Vocabulary model.
+     * Creates a new Section model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Vocabulary();
+        $model = new Section();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -75,7 +75,7 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Updates an existing Vocabulary model.
+     * Updates an existing Section model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +94,7 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Deletes an existing Vocabulary model.
+     * Deletes an existing Section model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +107,15 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Finds the Vocabulary model based on its primary key value.
+     * Finds the Section model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Vocabulary the loaded model
+     * @return Section the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Vocabulary::findOne($id)) !== null) {
+        if (($model = Section::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

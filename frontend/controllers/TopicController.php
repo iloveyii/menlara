@@ -2,17 +2,18 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Section;
 use Yii;
-use frontend\models\Vocabulary;
+use frontend\models\Topic;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * VocabularyController implements the CRUD actions for Vocabulary model.
+ * TopicController implements the CRUD actions for Topic model.
  */
-class VocabularyController extends Controller
+class TopicController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,13 +31,13 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Lists all Vocabulary models.
+     * Lists all Topic models.
      * @return mixed
      */
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Vocabulary::find(),
+            'query' => Topic::find(),
         ]);
 
         return $this->render('index', [
@@ -45,7 +46,7 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Displays a single Vocabulary model.
+     * Displays a single Topic model.
      * @param integer $id
      * @return mixed
      */
@@ -57,25 +58,26 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Creates a new Vocabulary model.
+     * Creates a new Topic model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Vocabulary();
+        $model = new Topic();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'listSection' => Section::list()
             ]);
         }
     }
 
     /**
-     * Updates an existing Vocabulary model.
+     * Updates an existing Topic model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -94,7 +96,7 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Deletes an existing Vocabulary model.
+     * Deletes an existing Topic model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -107,15 +109,15 @@ class VocabularyController extends Controller
     }
 
     /**
-     * Finds the Vocabulary model based on its primary key value.
+     * Finds the Topic model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Vocabulary the loaded model
+     * @return Topic the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Vocabulary::findOne($id)) !== null) {
+        if (($model = Topic::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

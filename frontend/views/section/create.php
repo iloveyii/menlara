@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Vocabulary */
+/* @var $model frontend\models\Section */
 
-$this->title = 'Create Vocabulary';
-$this->params['breadcrumbs'][] = ['label' => 'Vocabularies', 'url' => ['index']];
+$this->title = 'Create Section';
+$this->params['breadcrumbs'][] = ['label' => 'Sections', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="vocabulary-create box">
+<div class="section-create box">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
