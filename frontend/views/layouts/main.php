@@ -35,11 +35,16 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/challenge/playnow']],
+        ['label' => 'Home', 'url' => Yii::$app->homeUrl],
     ];
 
 
     $sections = \frontend\models\Section::find()->all();
+
+    $menuItems[] = [
+        'label' => 'Tenses',
+        'url' => [sprintf("/%s", 'tenses')]
+    ];
 
     foreach ($sections as $section) {
         $menuItems[] = [
