@@ -3,6 +3,9 @@
 namespace frontend\models;
 
 use Yii;
+use yii\db\ActiveRecord;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "subtopic".
@@ -16,7 +19,7 @@ use Yii;
  *
  * @property Topic $topic
  */
-class Subtopic extends \yii\db\ActiveRecord
+class Subtopic extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -52,6 +55,21 @@ class Subtopic extends \yii\db\ActiveRecord
             'topic_id' => 'Topic ID',
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => new Expression('NOW()'),
+            ],
         ];
     }
 

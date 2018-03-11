@@ -3,11 +3,13 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Vocabulary;
+
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
+use frontend\models\Vocabulary;
 
 /**
  * VocabularyController implements the CRUD actions for Vocabulary model.

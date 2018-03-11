@@ -28,10 +28,6 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
@@ -39,3 +35,18 @@ use kartik\select2\Select2;
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<div class="col-md-12">
+    <?=
+    $this->render('/vocabulary/_form', [
+        'model' => $vocabulary
+    ]);
+    ?>
+</div>
+
+<?=
+
+    $this->render('/vocabulary/index', [
+        'dataProvider' => $dpVocabulary
+    ])
+?>

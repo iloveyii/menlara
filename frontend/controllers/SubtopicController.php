@@ -3,12 +3,15 @@
 namespace frontend\controllers;
 
 use Yii;
-use frontend\models\Subtopic;
-use frontend\models\Topic;
+
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
+use frontend\models\Vocabulary;
+use frontend\models\Subtopic;
+use frontend\models\Topic;
 
 /**
  * SubtopicController implements the CRUD actions for Subtopic model.
@@ -40,8 +43,13 @@ class SubtopicController extends Controller
             'query' => Subtopic::find(),
         ]);
 
+        $dpVocabulary = new ActiveDataProvider([
+            'query' => Vocabulary::find(),
+        ]);
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'dpVocabulary' => $dpVocabulary
         ]);
     }
 
@@ -65,15 +73,25 @@ class SubtopicController extends Controller
     public function actionCreate()
     {
         $model = new Subtopic();
+        $vocabulary = new Vocabulary();
+
+        $dpVocabulary = new ActiveDataProvider([
+            'query' => Vocabulary::find(),
+        ]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-                'listTopic' => Topic::list()
-            ]);
+            if($vocabulary->load(Yii::$app->request->post()) && $vocabulary->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+            'vocabulary' => $vocabulary,
+            'listTopic' => Topic::list(),
+            'dpVocabulary' => $dpVocabulary
+        ]);
+
     }
 
     /**
@@ -85,15 +103,28 @@ class SubtopicController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $vocabulary = new Vocabulary();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-                'listTopic' => Topic::list()
-            ]);
+        $dpVocabulary = new ActiveDataProvider([
+            'query' => Vocabulary::find(),
+        ]);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save(false);
         }
+
+        if($vocabulary->load(Yii::$app->request->post()) && $vocabulary->validate()) {
+            // return $this->redirect(['view', 'id' => $model->id]);
+            $vocabulary->save(false);
+        }
+
+        return $this->render('update', [
+            'model' => $model,
+            'vocabulary' => $vocabulary,
+            'listTopic' => Topic::list(),
+            'dpVocabulary' => $dpVocabulary
+        ]);
+
     }
 
     /**
