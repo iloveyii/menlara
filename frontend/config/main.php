@@ -36,7 +36,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'challenge/playnow',
+                '' => 'subtopic/index',
                 'subcategory' => 'site/services',
                 'contact' => 'site/contact',
                 'tenses' => 'tenses/index',
