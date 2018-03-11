@@ -53,6 +53,7 @@ class Subtopic extends ActiveRecord
             'name' => 'Name',
             'description' => 'Description',
             'topic_id' => 'Topic ID',
+            'topic.name' => 'Topic Name',
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
         ];
