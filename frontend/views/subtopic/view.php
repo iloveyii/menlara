@@ -12,8 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="subtopic-view box">
 
-    <div class="row">
-        <div class="col-md-12">
+    <div>
+        <div class="col-md-12 box">
             <p>
                 <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
                 <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </div>
 
-    <div class="row">
+    <div>
 
         <div class="col-md-3">
             <?= Html::img($model->pic_url, ['style'=>'border:1px black solid; width: 100%;'])?>
@@ -41,11 +41,17 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 
-    <div class="row">
-        <div class="col-md-12">
+    <div>
+        <div class="col-md-12 box">
             <hr />
             <?= $model->description ?>
         </div>
     </div>
+
+    <?=
+    $this->render('/vocabulary/index', [
+        'dataProvider' => $dpVocabulary
+    ])
+    ?>
 
 </div>

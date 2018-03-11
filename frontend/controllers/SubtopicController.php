@@ -60,8 +60,13 @@ class SubtopicController extends Controller
      */
     public function actionView($id)
     {
+        $dpVocabulary = new ActiveDataProvider([
+            'query' => Vocabulary::find()->where(['subtopic_id'=>$id]),
+        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dpVocabulary' => $dpVocabulary
         ]);
     }
 
@@ -76,14 +81,20 @@ class SubtopicController extends Controller
         $vocabulary = new Vocabulary();
 
         $dpVocabulary = new ActiveDataProvider([
-            'query' => Vocabulary::find(),
+            'query' => Vocabulary::find()->where(['subtopic_id'=>$model->id]),
         ]);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if($vocabulary->load(Yii::$app->request->post()) && $vocabulary->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save(false);
+            return $this->redirect(['update', 'id' => $model->id]);
         }
+
+        if($vocabulary->load(Yii::$app->request->post()) && $vocabulary->validate()) {
+            $vocabulary->subtopic_id = $model->id;
+            $vocabulary->save(false);
+            return $this->redirect(['update', 'id' => $model->id]);
+        }
+
 
         return $this->render('create', [
             'model' => $model,
@@ -106,7 +117,7 @@ class SubtopicController extends Controller
         $vocabulary = new Vocabulary();
 
         $dpVocabulary = new ActiveDataProvider([
-            'query' => Vocabulary::find(),
+            'query' => Vocabulary::find()->where(['subtopic_id'=>$model->id]),
         ]);
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -115,6 +126,7 @@ class SubtopicController extends Controller
 
         if($vocabulary->load(Yii::$app->request->post()) && $vocabulary->validate()) {
             // return $this->redirect(['view', 'id' => $model->id]);
+            $vocabulary->subtopic_id = $model->id;
             $vocabulary->save(false);
         }
 

@@ -3,10 +3,6 @@
 namespace frontend\models;
 
 use Yii;
-use yii\db\ActiveRecord;
-use yii\behaviors\TimestampBehavior;
-use yii\db\Expression;
-
 
 /**
  * This is the model class for table "vocabulary".
@@ -17,8 +13,11 @@ use yii\db\Expression;
  * @property string $lang
  * @property string $updated_at
  * @property string $created_at
+ * @property integer $subtopic_id
+ *
+ * @property Subtopic $subtopic
  */
-class Vocabulary extends ActiveRecord
+class Vocabulary extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -35,8 +34,10 @@ class Vocabulary extends ActiveRecord
     {
         return [
             [['updated_at', 'created_at'], 'safe'],
+            [['subtopic_id'], 'integer'],
             [['word', 'meaning'], 'string', 'max' => 150],
             [['lang'], 'string', 'max' => 2],
+            [['subtopic_id'], 'exist', 'skipOnError' => true, 'targetClass' => Subtopic::className(), 'targetAttribute' => ['subtopic_id' => 'id']],
         ];
     }
 
@@ -52,22 +53,15 @@ class Vocabulary extends ActiveRecord
             'lang' => 'Lang',
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
+            'subtopic_id' => 'Subtopic ID',
         ];
     }
 
     /**
-     * @inheritdoc
+     * @return \yii\db\ActiveQuery
      */
-    public function behaviors()
+    public function getSubtopic()
     {
-        return [
-            [
-                'class' => TimestampBehavior::className(),
-                'createdAtAttribute' => 'created_at',
-                'updatedAtAttribute' => 'updated_at',
-                'value' => new Expression('NOW()'),
-            ],
-        ];
+        return $this->hasOne(Subtopic::className(), ['id' => 'subtopic_id']);
     }
-
 }
