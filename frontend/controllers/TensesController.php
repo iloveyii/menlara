@@ -55,7 +55,7 @@ class TensesController extends Controller
         $letters = array_merge(range('a', 'z'), ['ä', 'å', 'ö'] );
 
         // Translate
-        $this->translate($dataProvider);
+        // $this->translate();
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -63,10 +63,11 @@ class TensesController extends Controller
         ]);
     }
 
-    private function translate($dataProvider)
+    private function translate()
     {
         $tr = new Translate();
-        $models = $dataProvider->getModels();
+        // $models = $dataProvider->getModels();
+        $models = Tenses::find()->all();
         foreach ($models as $model) {
             if(empty($model->english)) {
                 $word = $model->infinitiv;

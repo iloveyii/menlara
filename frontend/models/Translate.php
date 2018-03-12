@@ -5,7 +5,6 @@ namespace frontend\models;
 
 class Translate
 {
-    // private $url = 'https://en.bab.la/conjugation/swedish/anstr%C3%A4nga';
     private $url = 'https://en.bab.la/conjugation/swedish/%s';
 
     public function __construct()
@@ -15,11 +14,10 @@ class Translate
 
     public function toEn($word)
     {
-        $regex = '/(\s*<li><a .*>(.*)<\/a><\/li>\s*)/U';
-        $translated = $this->getData(sprintf($this->url, $word), $regex);
-        $multiWords = null;
+        $translated = $this->getEnTranslations($word);
+        $multiWords = [];
 
-        if(is_array($translated)) {
+        if( ! empty($translated)) {
             $multiWords = array_map(function($a){
                 return $a[2];
             }, $translated);
@@ -27,22 +25,31 @@ class Translate
             return implode(', ', $multiWords);
         }
 
-        return $multiWords;
+        return null;
     }
 
 
-    private function getData($url, $regex)
+    private function getEnTranslations($word) : array
     {
+        /**
+         * First get the required DIV
+         */
         $regexDiv = '/<p class="lead">Translations \(English\)[\s\S]*<\/ul>/U';
+        $url = sprintf($this->url, $word);
         $str = @file_get_contents($url);
-        preg_match($regexDiv, $str, $matchesDiv);
-        if( count($matchesDiv) < 1) {
-            return null;
+        preg_match($regexDiv, $str, $requiredDiv);
+
+        if( count($requiredDiv) < 1) {
+            return [];
         }
-        $str = $matchesDiv[0];
 
-        preg_match_all($regex, $str, $matches, PREG_SET_ORDER, 0);
+        /**
+         * Get the translated words from requiredDiv
+         */
+        $str = $requiredDiv[0];
+        $regex = '/(\s*<li><a .*>(.*)<\/a><\/li>\s*)/U';
+        preg_match_all($regex, $str, $translations, PREG_SET_ORDER, 0);
 
-        return $matches;
+        return array_slice($translations, 0, 8);
     }
 }
