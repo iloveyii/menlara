@@ -103,23 +103,21 @@ a.desc:after {
     padding: 8px;
 }
 
-@media(max-width:768px) {
-	.nav li > form {
-	    padding: 3px;
-	}
+@media (max-width: 768px) {
+    .nav li > form {
+        padding: 3px;
+    }
 }
 
 .nav > li > form > button:hover {
     text-decoration: none;
 }
 
-a.navbar-brand
-{
+a.navbar-brand {
     color: #00c0d3 !important;
 }
 
-a.navbar-brand::before
-{
+a.navbar-brand::before {
     content: "#";
 }
 
@@ -127,4 +125,75 @@ a.navbar-brand::before
     background-color: #FFF;
     padding: 15px;
     border-radius: 5px;
+}
+
+/* callout */
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0
+}
+
+.bs-callout code {
+    border-radius: 3px
+}
+
+.bs-callout + .bs-callout {
+    margin-top: -5px
+}
+
+.bs-callout-danger {
+    border-left-color: #d9534f
+}
+
+.bs-callout-danger h4 {
+    color: #d9534f
+}
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e
+}
+
+.bs-callout-warning h4 {
+    color: #f0ad4e
+}
+
+.bs-callout-info {
+    border-left-color: #5bc0de
+}
+
+.bs-callout-info h4 {
+    color: #5bc0de
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px
+}
+
+.carousel-inner img {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.bs-callout p {
+    line-height: 2.5em;
+    font-weight: 300;
+    font-size: 1.5em;
+}
+.bs-callout h4 {
+    font-size: 2.5em;
 }

@@ -28,25 +28,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </div>
 
-    <div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="bs-callout bs-callout-info" style="padding-left: 5px;">
+                    <div class="col-md-4">
+                        <?= Html::img($model->pic_url, ['style'=>'border:1px black solid; width: 100%;'])?>
+                        <small><?= trim($model->pic_text) ?></small>
+                    </div>
+                    <div class="col-md-8">
+                        <h4><?= Html::encode($this->title) ?></h4>
+                        <p><?= trim($model->description) ?></p>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+            </div>
 
-        <div class="col-md-3">
-            <?= Html::img($model->pic_url, ['style'=>'border:1px black solid; width: 100%;'])?>
-        </div>
-
-        <div class="col-md-9">
-            <h1><?= Html::encode($this->title) ?></h1>
-        </div>
-
-    </div>
-
-
-    <div>
-        <div class="col-md-12 box">
-            <hr />
-            <pre>
-                <?= trim($model->description) ?>
-            </pre>
         </div>
     </div>
 
@@ -56,4 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ])
     ?>
 
+
 </div>
+
+
