@@ -44,7 +44,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <div>
         <div class="col-md-12 box">
             <hr />
-            <?= $model->description ?>
+            <pre>
+                <?= trim($model->description) ?>
+            </pre>
         </div>
     </div>
 

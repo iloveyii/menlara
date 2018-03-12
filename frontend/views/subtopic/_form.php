@@ -26,7 +26,7 @@ use kartik\select2\Select2;
     ]);
     ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 10]) ?>
 
     <?= $form->field($model, 'pic_url')->textInput(['maxlength' => true]) ?>
 
