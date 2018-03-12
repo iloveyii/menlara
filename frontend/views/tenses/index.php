@@ -30,7 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'english',
+            [
+                'header'=>'english',
+                'value'=>function($model) {
+                    $arr = explode(',', $model->english);
+                    return implode(', ', array_slice($arr, 0, 3));
+                }
+            ],
             'infinitiv',
             'presens',
             'preteritum',

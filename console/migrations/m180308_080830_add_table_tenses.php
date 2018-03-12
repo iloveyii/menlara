@@ -8,7 +8,7 @@ class m180308_080830_add_table_tenses extends Migration
     {
         $this->createTable('tenses', [
             'id' => $this->primaryKey(),
-            'english' => $this->string(100),
+            'english' => $this->string(300),
             'infinitiv' => $this->string(100),
             'presens' => $this->string(100),
             'preteritum' => $this->string(100),

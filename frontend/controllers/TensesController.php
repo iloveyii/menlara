@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use frontend\models\Category;
 use frontend\models\SubCategory;
 use frontend\models\Tenses;
+use frontend\models\Translate;
 use Yii;
 use frontend\models\Challenge;
 use yii\data\ActiveDataProvider;
@@ -53,22 +54,33 @@ class TensesController extends Controller
 
         $letters = array_merge(range('a', 'z'), ['ä', 'å', 'ö'] );
 
+        // Translate
+        $this->translate($dataProvider);
+
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'letters' => $letters
         ]);
     }
 
-    private function translate()
+    private function translate($dataProvider)
     {
-        $url = "https://en.bab.la/dictionary/swedish-english/%s";
-
-        $models = Tenses::find()->all();
+        $tr = new Translate();
+        $models = $dataProvider->getModels();
         foreach ($models as $model) {
-            print_r($model->getAttributes());
+            if(empty($model->english)) {
+                $word = $model->infinitiv;
+                if(strpos($model->infinitiv, ',')) {
+                    $arr = explode(',', $model->infinitiv);
+                    $word = array_shift($arr); // translate first word
+                }
+                $translated = $tr->toEn($word);
+                if( ! is_null($translated)) {
+                    $model->english = $translated;
+                    $model->save(false);
+                }
+            }
         }
-
-        exit;
     }
 
     private function importData() : bool
