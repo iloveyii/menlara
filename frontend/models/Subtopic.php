@@ -35,7 +35,7 @@ class Subtopic extends ActiveRecord
     public function rules()
     {
         return [
-            [['description', 'pic_url'], 'string'],
+            [['description', 'pic_url', 'pic_text'], 'string'],
             [['topic_id'], 'integer'],
             [['updated_at', 'created_at'], 'safe'],
             [['name'], 'string', 'max' => 150],

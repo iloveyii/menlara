@@ -121,4 +121,24 @@ class SectionController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionSection()
+    {
+        $model = new Section;
+        $model->sectionName = 'Grammar';
+
+        return $this->render('section', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionGrammar()
+    {
+        $model = $this->findModel(2);
+        $model->sectionName = 'Grammar';
+
+        return $this->render('section', [
+            'model' => $model,
+        ]);
+    }
 }

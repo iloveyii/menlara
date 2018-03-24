@@ -18,6 +18,8 @@ use yii\helpers\ArrayHelper;
  */
 class Section extends \yii\db\ActiveRecord
 {
+    public $sectionName;
+
     /**
      * @inheritdoc
      */

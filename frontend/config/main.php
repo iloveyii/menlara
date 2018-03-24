@@ -39,7 +39,18 @@ return [
                 '' => 'subtopic/index',
                 'subcategory' => 'site/services',
                 'contact' => 'site/contact',
-                'tenses' => 'tenses/index',
+
+                /* Section */
+                'vocabulary' => 'vocabulary/index',
+
+                /* Section */
+                'grammar' => 'section/grammar',
+                /* Topic */
+                'grammar/tenses' => 'tenses/index',
+                'grammar/bestamd' => 'bestamd/index',
+
+                /* Section */
+                'reading/index' => 'subtopic/index',
 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
 

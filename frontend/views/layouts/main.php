@@ -41,16 +41,26 @@ AppAsset::register($this);
 
     $sections = \frontend\models\Section::find()->all();
 
-    $menuItems[] = [
-        'label' => 'Tenses',
-        'url' => [sprintf("/%s", 'tenses')]
-    ];
-
     foreach ($sections as $section) {
-        $menuItems[] = [
-            'label' => $section->name,
-            'url' => [sprintf("/%s", $section->url)]
-        ];
+        $items = [];
+        foreach ($section->topics as $topic) {
+            $items[] =
+                ['label' => $topic->name, 'url' => [sprintf("%s/%s", $section->url, strtolower($topic->url)) ]]
+            ;
+        }
+
+        if( empty($items) )
+            $menuItems[] = [
+                'label' => $section->name,
+                'url' => [sprintf("/%s", $section->url)],
+            ];
+        else
+            $menuItems[] = [
+                'label' => $section->name,
+                'url' => [sprintf("/%s", $section->url)],
+                'items' => $items
+            ];
+
     }
 
     if (Yii::$app->user->isGuest) {
