@@ -16,7 +16,7 @@ class PronomenController extends \yii\web\Controller
 
     public function actionReflexiva()
     {
-        return $this->render('index');
+        return $this->render('reflexiva');
     }
 
     public function actionPossessiva()

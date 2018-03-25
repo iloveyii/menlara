@@ -18,6 +18,7 @@ use yii\helpers\Html;
     <div class="row">
         <div class="col-md-offset-1 col-md-10">
             <h1>Personliga pronomen</h1>
+            <p>The following sentences contain personliga pronomen in subject and object forms.</p>
         </div>
     </div>
     <div class="row">
