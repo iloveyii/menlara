@@ -49,9 +49,14 @@ return [
                 'grammar/tenses' => 'tenses/index',
                 'grammar/bestamd' => 'bestamd/index',
                 'grammar/pronomen' => 'pronomen/index',
+                'grammar/pronomen/personliga' => 'pronomen/personliga',
+                'grammar/pronomen/reflexiva' => 'pronomen/reflexiva',
+                'grammar/pronomen/possessiva' => 'pronomen/possessiva',
+                'grammar/pronomen/reflexivapossessiva' => 'pronomen/reflexivapossessiva',
 
                 /* Section */
-                'reading/index' => 'subtopic/index',
+                'reading/newspaper' => 'subtopic/newspaper',
+                'reading/articles' => 'subtopic/articles',
 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
 

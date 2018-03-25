@@ -37,10 +37,26 @@ class SubtopicController extends Controller
      * Lists all Subtopic models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionNewspaper()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Subtopic::find(),
+            'query' => Subtopic::find()->where(['topic_id'=>2]),
+        ]);
+
+        $dpVocabulary = new ActiveDataProvider([
+            'query' => Vocabulary::find(),
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'dpVocabulary' => $dpVocabulary
+        ]);
+    }
+
+    public function actionArticles()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Subtopic::find()->where(['topic_id'=>5]),
         ]);
 
         $dpVocabulary = new ActiveDataProvider([
