@@ -96,20 +96,48 @@
     <h3>Bestämd form</h3>
     <ol>
         <li>
-            <p>When use have presented something and want to continue to talk about the same thing we use bestämd form.</p>
+            <p>When we have presented something and want to continue to talk about the same thing we use bestämd form.</p>
             <p>Examples:</p>
             <ul>
-                <li>Har du sett mina nycklar. - Ja, nycklarna ligger på stolen.</li>
-                <li>Jag såg en film igår. Filmen var mycket spännande.</li>
+                <li>Har du sett mina nycklar. - Ja, nycklarna ligger på <strong>stolen</strong>.</li>
+                <li>Jag såg en film igår. <strong>Filmen</strong> var mycket spännande.</li>
             </ul>
         </li>
 
         <li>
             <p>If something exists only one.</p>
             <ul>
-                <li>Jag har ont i magen.</li>
-                <li>Solen skiner idag.</li>
-                <li>Imorgon kommer kungen.</li>
+                <li>Jag har ont i <strong>magen</strong>.</li>
+                <li><strong>Solen</strong> skiner idag.</li>
+                <li>Imorgon kommer <strong>kungen</strong>.</li>
+            </ul>
+        </li>
+
+        <li>
+            <p>After bestämd artikel and bestämd pronomen.</p>
+            <ul>
+                <li>den, det , de</li>
+                <li>den, det, de här/där</li>
+            </ul>
+            <p>Example</p>
+            <ul>
+                <li>Jag vill inte ha den råda <strong>kakan</strong>.</li>
+                <li>De säljer den väckra <strong>bilen</strong>.</li>
+            </ul>
+        </li>
+
+        <li>
+            <p>After the following words:</p>
+            <ul>
+                <li>båda, bägge, halva, hela, förra, första, sista</li>
+            </ul>
+            <p>Example:</p>
+            <ul>
+                <li>Vi vill köpa båda <strong>böckerna</strong>.</li>
+                <li>Adam äter halva <strong>kakan</strong>.</li>
+                <li>Henrik är upptagen hela <strong>veckan</strong>.</li>
+                <li>Kan jag få sista <strong>bussen</strong> ? </li>
+                <li>När har vi första <strong>bilen</strong> ?</li>
             </ul>
         </li>
     </ol>

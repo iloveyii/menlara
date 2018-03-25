@@ -48,6 +48,7 @@ return [
                 /* Topic */
                 'grammar/tenses' => 'tenses/index',
                 'grammar/bestamd' => 'bestamd/index',
+                'grammar/pronomen' => 'pronomen/index',
 
                 /* Section */
                 'reading/index' => 'subtopic/index',
