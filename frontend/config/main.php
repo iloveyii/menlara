@@ -9,7 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'homeUrl' => ['subtopic/index'],
+    'homeUrl' => ['vocabulary/index'],
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -36,7 +36,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'subtopic/index',
+                '' => 'vocabulary/index',
                 'subcategory' => 'site/services',
                 'contact' => 'site/contact',
 
