@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'header'=>'english',
                 'value'=>function($model) {
                     $arr = explode(',', $model->english);
-                    return implode(', ', array_slice($arr, 0, 3));
+                    return implode(', ', array_slice($arr, 0, 2));
                 }
             ],
             'infinitiv',

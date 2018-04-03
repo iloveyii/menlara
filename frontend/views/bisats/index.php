@@ -88,6 +88,7 @@ use yii\helpers\Html;
                         </p>
                         <p>Det regnade mycket. <u>Mannen åkte</u> bil till stan. (<i>two huvudsats</i>)</p>
                         <p>Eftersom det regnade mycket, <u>åkte mannen</u> bil till stan. (<i> bistats + huvudsats</i>)</p>
+                        <p>Eftersom jag ska gå på fest, <u>ska jag köpa</u> en ny klänning. (<i>Sentence 1 above - bisats before huvudsats</i>)</p>
                     </li>
                     <li>
                         <h4>Use bisats before huvudsats with inte</h4>
