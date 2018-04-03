@@ -12,7 +12,7 @@ use yii\helpers\Html;
     </p>
 
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <h3>Huvudsats</h3>
             <p>A Huvudsats is a simple sentence with a subjekt and verb. It can stay alone as a fully meaningful sentence. Other features are as follows:</p>
             <p>
@@ -36,9 +36,9 @@ use yii\helpers\Html;
             </p>
 
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <br><br>
-            <?=Html::img('@web/images/huvudsats-1.png', ['class' => 'pull-left img-responsive']); ?>
+            <?= Html::img(['@web/images/huvudsats-1.png'], ['class' => 'pull-left img-responsive']); ?>
         </div>
     </div>
 
