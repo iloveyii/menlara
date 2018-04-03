@@ -54,6 +54,7 @@ return [
                 'grammar/pronomen/possessiva' => 'pronomen/possessiva',
                 'grammar/pronomen/reflexivapossessiva' => 'pronomen/reflexivapossessiva',
                 'grammar/huvudsats-och-bisats' => 'bisats/index',
+                'grammar/verb' => 'verb/index',
 
                 /* Section */
                 'reading/newspaper' => 'subtopic/newspaper',

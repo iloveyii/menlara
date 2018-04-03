@@ -68,10 +68,10 @@ use yii\helpers\Html;
             <p>
                 <ol>
                     <li>
-                        <h4>Combine two huvudsats - nothing changes here</h4>
+                        <h4>Use huvudsats before bisats - nothing changes here</h4>
                         <p>Jag ska köpa en ny klänning. (<i>huvudsats 1</i>)</p>
                         <p>Jag ska gå på fest. (<i>huvudsats 2</i>)</p>
-                        <p>Jag ska köpa en ny klänning, eftersom jag ska gå på fest. (<i>Huvudsats with bisats</i>) </p>
+                        <p>Jag ska köpa en ny klänning, eftersom jag ska gå på fest. (<i>Huvudsats + bisats</i>) </p>
                     </li>
                     <li>
                         <h4>Use of inte</h4>
