@@ -69,6 +69,38 @@ class SubtopicController extends Controller
         ]);
     }
 
+    public function actionConversations()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Subtopic::find()->where(['topic_id'=>11]),
+        ]);
+
+        $dpVocabulary = new ActiveDataProvider([
+            'query' => Vocabulary::find(),
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'dpVocabulary' => $dpVocabulary
+        ]);
+    }
+
+    public function actionProfessions()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Subtopic::find()->where(['topic_id'=>12]),
+        ]);
+
+        $dpVocabulary = new ActiveDataProvider([
+            'query' => Vocabulary::find(),
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'dpVocabulary' => $dpVocabulary
+        ]);
+    }
+
     /**
      * Displays a single Subtopic model.
      * @param integer $id

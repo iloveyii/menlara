@@ -59,6 +59,8 @@ return [
                 /* Section */
                 'reading/newspaper' => 'subtopic/newspaper',
                 'reading/articles' => 'subtopic/articles',
+                'reading/conversations' => 'subtopic/conversations',
+                'reading/professions' => 'subtopic/professions',
 
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
 
